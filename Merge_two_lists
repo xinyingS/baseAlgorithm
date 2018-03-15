@@ -1,0 +1,37 @@
+Merge two lists
+
+Eg: 3 -> 4 -> 5
+
+prev    3 -> 4 -> 5
+ p      c    n
+    <-  p    c    n
+          <- p    c   n
+               <- p
+
+public class ReverseLinkedList {
+	public ListNode reverse(ListNode head) {
+		if(head == null || head.next == null){
+			return head;
+		}
+
+		ListNode prev = null;
+		ListNode current = head;
+		ListNode next;
+		while(current != null){
+			next = current.next;
+			current.next = prev;  // 3-> prev    4-> 5 ....
+			prev = current;
+			current = next;
+		}
+		return prev;
+	}
+
+	public void printLists(ListNode head){
+		System.out.println(head.val);
+
+		while(head.next != null){
+			head = head.next;
+			System.out.println(head.val);
+		}
+	}
+}
