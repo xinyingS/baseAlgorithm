@@ -1,0 +1,49 @@
+Linked List Cycle
+
+Reference from : http://www.jiuzhang.com/solution/linked-list-cycle/
+
+one take one step,
+another take two steps.
+
+method 1: while(fast != slow) 不相遇
+
+public class Solution {
+    public Boolean hasCycle(ListNode head) {
+        if (head == null) {
+            return false;
+        }
+
+        ListNode fast, slow;
+        fast = head.next;
+        slow = head;
+        while (fast != slow) {
+            if(fast==null || fast.next==null)
+                return false;
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return true;
+    }
+}
+
+method 2: if(fast == slow) 相遇
+
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if(head == null){
+            return false;
+        }
+        ListNode fast = head.next;
+        ListNode slow = head;
+        while(fast != null && fast.next != null){
+            if(fast == slow){
+                return true;
+            }
+
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        return false;
+    }
+}
