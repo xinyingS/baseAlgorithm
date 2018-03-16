@@ -1,4 +1,6 @@
-Reverse Two LinkedList 
+Reverse Two LinkedList
+
+三指针做法， prev, current, next
 
 Eg: 3 -> 4 -> 5
 
