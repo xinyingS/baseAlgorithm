@@ -28,10 +28,11 @@ public class Solution {
 }
 
 method 2: if(fast == slow) 相遇
+*********************************remember this.
 
 public class Solution {
     public boolean hasCycle(ListNode head) {
-        if(head == null){
+        if(head == null || head.next == null){
             return false;
         }
         ListNode fast = head.next;
