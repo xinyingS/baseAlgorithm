@@ -1,0 +1,30 @@
+public class HashTable{
+    //change to be an array of lists of integers
+    private List<Integer>[] dataList;
+
+    //constructor to initialize hashtable
+    public HashTable(int numBoxes){
+      dataList = new ArrayList<Integer>[numBoxes];
+      for(int i = 0; i < dataList.length; i++){
+        dataList[i] = new ArrayList<>();
+      }
+    }
+
+    public void addToHashTable(int data){
+      int index = hashFunction(data);
+      dataList[index].add(data); //in this line, all the collision resolution is done;
+      /**
+      suppose the index yielded by function hashFunction(data),
+      results to an occupied index, then the data will simply be appended to the list of numbers in the array.
+      **/
+    }
+
+
+    private int hashFunction(int args){
+      /**
+      easy one.
+      **/
+      int x = args % dataList.size();
+      return x;
+    }
+}
