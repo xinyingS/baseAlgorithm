@@ -1,0 +1,40 @@
+Lowest Common Ancestor ii
+(给了parent指针)
+
+note:
+从下往上找，找第一个开始不同的。
+
+（3，5） 3-> 4
+5-> 7-> 4
+
+（5，6）5-> 7 -> 4
+6-> 7-> 4
+
+
+
+class ParentTreeNode {
+      public ParentTreeNode parent, left, right;
+}
+
+public class Solution {
+    public ParentTreeNode lowestCommonAncestorII(ParentTreeNode root, ParentTreeNode A, ParentTreeNode B) {
+
+        Set<ParentTreeNode> parentSet = new HashSet<>();
+        ParentTreeNode cur = A;
+        // Add node A's parent path to the pathSet
+        while (cur != null) {
+            parentSet.add(cur);
+            cur = cur.parent;
+        }
+        // Traverse B's parent path, the first node that appears in A's parent path
+        // is the answer
+        cur = B;
+        while (cur != null) {
+            if (parentSet.contains(cur)) {
+                return cur;
+            }
+            cur = cur.parent;
+        }
+        return null;
+    }
+}
