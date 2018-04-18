@@ -1,0 +1,136 @@
+Java Read.
+
+1. Read char[][].
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      sc.nextLine();
+      int m = sc.nextInt();
+      char[][] grid = new char[n][m];
+      for (int i = 0; i < n; i++) {
+          String str = sc.next();
+          for (int j = 0; j < m; j++) {
+              grid[i][j] = str.charAt(j);
+          }
+      }
+
+       NumberOfIslands ni = new NumberOfIslands();
+       System.out.println(ni.numIslands(grid));
+
+2.
+      Scanner sc = new Scanner(System.in);
+      String[] sin = sc.nextLine().split(" ");
+      String str1 = sin[0];
+      String str2 = sin[1];
+      System.out.println(isSame(str1, str2));
+
+3.
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+
+      GenerateParentheses gp = new GenerateParentheses();
+      List<String> res = gp.generateParenthesis(n);
+      for(String s : res){
+          System.out.print(s + ", ");
+      }
+
+4.
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+
+      char[] key = sc.next().toCharArray();
+
+
+      System.out.println(hashCode(key, n));
+
+5. ListNode
+   (1)
+      Scanner sc = new Scanner(System.in);
+
+      ListNode dummy = new ListNode(-1);
+      ListNode current = new ListNode(sc.nextInt());
+      dummy.next = current;
+
+      while (sc.hasNextInt()){
+          current.next = new ListNode(sc.nextInt());
+          current = current.next;
+      }
+
+      while (dummy.next != null){
+          System.out.println(dummy.next.val);
+          dummy = dummy.next;
+      }
+
+    (2)
+      Scanner sc = new Scanner(System.in);
+
+      ListNode dummy = new ListNode(-1);
+      ListNode current = new ListNode(sc.nextInt());
+      dummy.next = current;
+
+      while (sc.hasNextInt()){
+          current.next = new ListNode(sc.nextInt());
+          current = current.next;
+      }
+
+      /**while (dummy.next != null){
+          System.out.println(dummy.next.val);
+          dummy = dummy.next;
+      }**/
+
+      List<ListNode> list = new ArrayList<>();
+      while (dummy.next != null){
+          list.add(dummy.next);
+          dummy =dummy.next;
+      }
+
+      MergeKSortedLists mergeKSortedLists = new MergeKSortedLists();
+      System.out.println(mergeKSortedLists.mergeKLists(list));
+
+
+6. 2D int array
+      Scanner sc = new Scanner(System.in);
+      int n = sc.nextInt();
+      int m = sc.nextInt();
+      sc.nextLine();
+
+      int[][] arrays = new int[n][m];
+      for (int i = 0; i < n; i++) {
+          for (int j = 0; j < m; j++) {
+              arrays[i][j] = sc.nextInt();
+          }
+      }
+
+      MergeKSortedArrays mergeKSortedArrays = new MergeKSortedArrays();
+      int[] result = mergeKSortedArrays.mergekSortedArrays(arrays);
+
+      for(int num : result){
+          System.out.print(num + " ");
+      }
+
+7. List
+      Scanner sc = new Scanner(System.in);
+      String str = sc.nextLine();
+
+      String[] word = sc.nextLine().split(", ");
+      List<String> wordDict = new ArrayList<>();
+      for(String w : word){
+          wordDict.add(w);
+      }
+
+      WordBreak wb = new WordBreak();
+      System.out.println(wb.wordBreak(str, wordDict));
+      System.out.println(wb.wordBreak2(str, wordDict));
+
+8. Set
+      Scanner sc = new Scanner(System.in);
+      Set<String> dict = new HashSet<>();
+      while (sc.hasNext()){
+          String start = sc.nextLine();
+          String end = sc.nextLine();
+          String[] split = sc.nextLine().split(" ");
+          Collections.addAll(dict, split);
+          int ladderLength = ladderLength(start, end, dict);
+          System.out.println(ladderLength);
+      }
+
+9. 
