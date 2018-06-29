@@ -1,8 +1,8 @@
 Hash Function
 1. Hash算法
-   (1) MD5
-   (2) SHA-1
-   (3) SHA-2
+   (1) MD5 --> % hash_table_size
+   (2) SHA-1  --> 加密算法
+   (3) SHA-2  -->
 
    int hashFunction(String key){
        return md5(key) % hash_table_size;
@@ -10,10 +10,15 @@ Hash Function
 
 2. String
    int hashFunction(String key){
-       int sum = 0;
+       int ans = 0;
        for(int i = 0; i < key.length(); i++){
-           sum = sum * 31 + (int)(key.charAt(i));
-           sum = sum % hash_table_size;
+           ans = (ans * 31 + (int)(key.charAt(i))) % hash_table_size;
        }
-       return sum;
+       return ans;
    }
+
+   eg: 128. Hash Func -> lintcode
+   'abc' = (a * 33^2 + b * 33^1 + c * 33 ^0) % hash_table_size
+   ->
+    (10 * 33^2 + 20 * 33^1 + 30 * 33^0) % hash_table_size
+  = [(10 * 33 + 20) * 33 + 30] % hash_table_size
